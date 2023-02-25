@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tasımaModelStoreContainer" CdmEntityContainer="tasımaEntities3">
+    <EntitySetMapping Name="tasımatablosu">
+      <EntityTypeMapping TypeName="tasımaModel.tasımatablosu">
+        <MappingFragment StoreEntitySet="tasımatablosu">
+          <ScalarProperty Name="ıd" ColumnName="ıd" />
+          <ScalarProperty Name="mod" ColumnName="mod" />
+          <ScalarProperty Name="tturu" ColumnName="tturu" />
+          <ScalarProperty Name="bülke" ColumnName="bülke" />
+          <ScalarProperty Name="pakett" ColumnName="pakett" />
+          <ScalarProperty Name="brmb" ColumnName="brmb" />
+          <ScalarProperty Name="brmi" ColumnName="brmi" />
+          <ScalarProperty Name="pbirimi" ColumnName="pbirimi" />
+          <ScalarProperty Name="ucret" ColumnName="ucret" />
+          <ScalarProperty Name="gülke" ColumnName="gülke" />
+          <ScalarProperty Name="gsehir" ColumnName="gsehir" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

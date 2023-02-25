@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tasımaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tasımatablosu">
+    <Key>
+      <PropertyRef Name="ıd" />
+    </Key>
+    <Property Name="ıd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tturu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bülke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pakett" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brmb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pbirimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ucret" Type="Int32" />
+    <Property Name="gülke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gsehir" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="tasımaEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tasımatablosu" EntityType="Self.tasımatablosu" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@using projeson.Models;
+@model List<tasımatablosu>
+
+
+
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <th>Mod </th>
+        <th>Taşıma Türü  </th>
+        <th> Bulunduğu Ülke </th>
+        <th>Gideceği ülke  </th>
+        <th>Gideceği Şehir</th>
+        <th>Paket Türü </th>
+        <th>Brm1  </th>
+        <th>Brm2  </th>
+        <th>Para Birimi  </th>
+        <th>Ücret </th>
+        <th>Sil </th>
+
+    </tr>
+
+
+    @foreach (var x in Model)
+    {
+        <tr>
+           <td> @x.ıd </td>
+            <td> @x.mod </td>
+            <td> @x.tturu  </td>
+            <td>@x.bülke </td>
+            <td> @x.gülke </td>
+            <td> @x.gsehir</td>
+            <td> @x.pakett</td>
+            <td> @x.brmb </td>
+            <td> @x.brmi </td>
+            <td> @x.pbirimi </td>
+            <td> @x.ucret </td>
+            <td><a href="/home/sil/@x.ıd" class="btn btn-danger">Sil</a></td>
+
+        </tr>
+
+    }
+
+
+</table>
+
+

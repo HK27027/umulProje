@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tasımaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tasımatablosu">
+    <Key>
+      <PropertyRef Name="ıd" />
+    </Key>
+    <Property Name="ıd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mod" Type="varchar" MaxLength="50" />
+    <Property Name="tturu" Type="varchar" MaxLength="50" />
+    <Property Name="bülke" Type="varchar" MaxLength="50" />
+    <Property Name="pakett" Type="varchar" MaxLength="50" />
+    <Property Name="brmb" Type="varchar" MaxLength="50" />
+    <Property Name="brmi" Type="varchar" MaxLength="50" />
+    <Property Name="pbirimi" Type="varchar" MaxLength="50" />
+    <Property Name="ucret" Type="int" />
+    <Property Name="gülke" Type="varchar" MaxLength="50" />
+    <Property Name="gsehir" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="tasımaModelStoreContainer">
+    <EntitySet Name="tasımatablosu" EntityType="Self.tasımatablosu" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

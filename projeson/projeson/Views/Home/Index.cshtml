@@ -1,0 +1,259 @@
+﻿@model projeson.Models.tasımatablosu
+<div class="col-12 col-md-6">
+    <h2>Teklif alın</h2>
+    <form action="/" method="post">
+        <div class="form-group">
+            @Html.LabelFor(x => x.mod, new { @class = "control-label col-md-2", style = "display:none;" })
+            <div class="form-group">
+                <select class="form-control" name="mod" id="transportationType">
+                    <option class="hidden" selected disabled>Mod seçin</option>
+                    <option>LCL</option>
+                    <option>FCL</option>
+                    <option>Hava</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.tturu, new { @class = "control-label col-md-2", style = "display:none;" })
+            <div class="form-group">
+
+                <select class="form-control"name="tturu" id="transportt">
+                    <option class="hidden" selected disabled>Taşıma Türü</option>
+                    <option>Kapıdan - Kapıya</option>
+                    <option>Limandan - kapıya</option>
+                    <option>Limandan - Limana</option>
+                    <option>Kapıdan - Limana</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.bülke, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select class="form-control" name="bülke">
+                <option class="hidden" selected disabled>Nereden</option>
+                <option value="USA">ABD</option>
+                <option value="China">Çin</option>
+                <option value="Turkey">Türkiye</option>
+            </select>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.gülke, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select class="form-control" id="country" name="gülke">
+                <option class="hidden" selected disabled>Nereye</option>
+                <option value="USA">ABD</option>
+                <option value="China">Çin</option>
+                <option value="Turkey">Türkiye</option>
+            </select>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.gsehir, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select class="form-control" id="city" name="gsehir">
+                <option class="hidden" selected disabled>Şehir seç</option>
+            </select>
+        </div>
+
+        <script>
+            var cityElement = document.getElementById('city');
+            var countryElement = document.getElementById('country');
+
+            countryElement.addEventListener('change', function () {
+                var selectedCountry = countryElement.value;
+
+
+                cityElement.innerHTML = '';
+
+                switch (selectedCountry) {
+                    case 'USA':
+                        cityElement.innerHTML += '<option>New York</option>';
+                        cityElement.innerHTML += '<option>Los Angeles</option>';
+                        cityElement.innerHTML += '<option>Miami</option>';
+                        cityElement.innerHTML += '<option>Minnesota</option>';
+                        break;
+                    case 'China':
+                        cityElement.innerHTML += '<option>Pekin</option>';
+                        cityElement.innerHTML += '<option>Şanghay</option>';
+                        break;
+                    case 'Turkey':
+                        cityElement.innerHTML += '<option>İstanbul</option>';
+                        cityElement.innerHTML += '<option>İzmir</option>';
+                        break;
+                    default:
+                        cityElement.innerHTML += '<option class="hidden" selected disabled>Şehir seç</option>';
+                        break;
+                }
+            });
+        </script>
+        <div class="form-group">
+            @Html.LabelFor(x => x.pakett, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select id="kutu" class="form-control" name="pakett">
+                <option class="hidden" selected disabled>Paket Türü</option>
+                <option>Palet</option>
+                <option>Kutu</option>
+                <option>Karton</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.brmb, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select class="form-control" name="brmb">
+                <option class="hidden" selected disabled>Birim 1</option>
+                <option>CM</option>
+                <option>IN</option>
+
+            </select>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.brmi, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select class="form-control" name="brmi">
+                <option class="hidden" selected disabled>Birim 2</option>
+                <option>KG</option>
+                <option>LB</option>
+
+            </select>
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.pbirimi, new { @class = "control-label col-md-2", style = "display:none;" })
+            <select id="para-birimi" class="form-control" name="pbirimi">
+                <option class="hidden" selected disabled>Para Birimi</option>
+                <option value="USD">USD</option>
+                <option value="CNY">CNY</option>
+                <option value="TRY">TRY</option>
+            </select>
+        </div>
+
+        <div>
+            <button id="teklif-al" class="success">Teklif al</button>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.ucret, new { @class = "control-label col-md-2", style = "display:none;" })
+            <div class="">
+                <input id="ucret-input" type="text" class="form-control" placeholder="Ücret" name="ucret" />
+            </div>
+        </div>
+                
+            
+            
+        
+        <script>
+            var btn = document.querySelector('.success');
+            btn.addEventListener('click', function () {
+                var cityElement = document.getElementById('city');
+                var selectedCity = cityElement.value;
+                var priceElement = document.querySelector('.form-control[placeholder="Ücret"]');
+                var currencyElement = document.getElementById('para-birimi');
+                var selectedCurrency = currencyElement.value;
+
+                var transportElement = document.getElementById('transportationType');
+                var selectedTransportation = transportElement.value;
+                var selectkutu = document.getElementById('kutu');
+                var seleckk = selectkutu.value;
+                var transport = document.getElementById('transportt');
+                var selectransport = transport.value;
+
+
+
+                var ekUcret = 0;
+                var kt = 0;
+                var tasıam = 0;
+
+                switch (selectransport) {
+                    case 'Kapıdan - Kapıya':
+                        tasıam = 120;
+                        break;
+                    case 'Limandan - kapıya':
+                        tasıam = 100;
+                        break;
+                    case 'Limandan - Limana':
+                        tasıam = 70;
+                        break;
+                    case 'Kapıdan - Limana':
+                        tasıam = 100;
+                        break;
+                    default:
+                        console.log("transport fail");
+                        break;
+                }
+
+                switch (seleckk) {
+                    case 'Palet':
+                        kt = 40;
+                        break;
+                    case 'Kutu':
+                        kt = 300;
+                        break;
+                    case 'Karton':
+                        kt = 400;
+                        break;
+                    default:
+                        console.log("transport fail");
+                        break;
+                }
+
+                switch (selectedTransportation) {
+                    case 'LCL':
+                        ekUcret = 50;
+                        break;
+                    case 'FCL':
+                        ekUcret = 100;
+                        break;
+                    case 'Hava':
+                        ekUcret = 1000;
+                        break;
+                    default:
+                        console.log("transport fail");
+                        break;
+                }
+
+                var currentCurrency = 1;
+
+                switch (selectedCurrency) {
+                    case 'TRY':
+                        currentCurrency = 20;
+                        break;
+                    case 'CNY':
+                        currentCurrency = 7;
+                        break;
+                    default:
+                        console.log("currency fail");
+                        break;
+                }
+
+                switch (selectedCity) {
+                    case 'New York':
+                        priceElement.value = (500 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'Los Angeles':
+                        priceElement.value = (500 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'Miami':
+                        priceElement.value = (500 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'Minnesota':
+                        priceElement.value = (500 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'Pekin':
+                        priceElement.value = (750 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'Şanghay':
+                        priceElement.value = (750 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'İstanbul':
+                        priceElement.value = (200 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    case 'İzmir':
+                        priceElement.value = (200 + ekUcret + kt + tasıam) * currentCurrency;
+                        break;
+                    default:
+                        console.log("city fail");
+                        break;
+                }
+            });</script>
+</div>
+</form>
+<div class="col-12 col-md-6">
+    <h3 class="text-center" style="font-variant-east-asian">Türkiye - Çin - ABD Kargo Taşıma İşlemleri</h3>
+    <img src="~/Content/i.jpg" width="600 px" height="400 px" alt="" />
+</div>

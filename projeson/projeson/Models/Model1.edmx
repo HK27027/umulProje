@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tasımaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tasımatablosu">
+          <Key>
+            <PropertyRef Name="ıd" />
+          </Key>
+          <Property Name="ıd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mod" Type="varchar" MaxLength="50" />
+          <Property Name="tturu" Type="varchar" MaxLength="50" />
+          <Property Name="bülke" Type="varchar" MaxLength="50" />
+          <Property Name="pakett" Type="varchar" MaxLength="50" />
+          <Property Name="brmb" Type="varchar" MaxLength="50" />
+          <Property Name="brmi" Type="varchar" MaxLength="50" />
+          <Property Name="pbirimi" Type="varchar" MaxLength="50" />
+          <Property Name="ucret" Type="int" />
+          <Property Name="gülke" Type="varchar" MaxLength="50" />
+          <Property Name="gsehir" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="tasımaModelStoreContainer">
+          <EntitySet Name="tasımatablosu" EntityType="Self.tasımatablosu" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tasımaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tasımatablosu">
+          <Key>
+            <PropertyRef Name="ıd" />
+          </Key>
+          <Property Name="ıd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tturu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bülke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pakett" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brmb" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pbirimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ucret" Type="Int32" />
+          <Property Name="gülke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gsehir" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="tasımaEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tasımatablosu" EntityType="Self.tasımatablosu" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tasımaModelStoreContainer" CdmEntityContainer="tasımaEntities3">
+          <EntitySetMapping Name="tasımatablosu">
+            <EntityTypeMapping TypeName="tasımaModel.tasımatablosu">
+              <MappingFragment StoreEntitySet="tasımatablosu">
+                <ScalarProperty Name="ıd" ColumnName="ıd" />
+                <ScalarProperty Name="mod" ColumnName="mod" />
+                <ScalarProperty Name="tturu" ColumnName="tturu" />
+                <ScalarProperty Name="bülke" ColumnName="bülke" />
+                <ScalarProperty Name="pakett" ColumnName="pakett" />
+                <ScalarProperty Name="brmb" ColumnName="brmb" />
+                <ScalarProperty Name="brmi" ColumnName="brmi" />
+                <ScalarProperty Name="pbirimi" ColumnName="pbirimi" />
+                <ScalarProperty Name="ucret" ColumnName="ucret" />
+                <ScalarProperty Name="gülke" ColumnName="gülke" />
+                <ScalarProperty Name="gsehir" ColumnName="gsehir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
